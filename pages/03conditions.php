@@ -66,6 +66,18 @@ echo "<p> Ok pour au moins une des deux conditions </p>";
     echo "<p> les deux conditions sont fausses </p>";
 }
 
+// l'operateur &&
+$var1=2;
+$var2=3;
+$var3=4;
+
+if($var1>$var2 && $var2>$var3){ // si $var1 est plus grand que $var2 ET si $var2 est plus grand que $var3 si ces deux conditions sont rempli alors tu affiche "les deux conditions sont vraies" sinon tu affiche "au moins une des deux conditions est fausse"
+    echo "les deux conditions sont vraies";
+}else{
+    echo " au moins une des deux conditions est fausse";
+}
+
+
 // comparaisons en == et === 
 
 $varA=1;
@@ -153,7 +165,7 @@ if(empty($vartt)){// $vartt n'est pas defini
 }
 
 
-if(empty($varE)){// si $varE est vide
+if(empty($varE)){// si $varE est vide ou null 
     echo "<p> la variable est vide</p>";
 }else{// si non vide 
     echo "<p> la variable n'est pas vide</p>";

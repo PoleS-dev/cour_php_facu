@@ -134,12 +134,13 @@ $tab2[] = "ajout_element3";
     echo $user1["email"];
 
     //Ou avec la function array()
-
+ echo' <h4>tableau $user2 </h4>';
     $user2 = array(
 
         "id" => 123,
         "name_username" => "Nassuf",
-        "email" => "nassuf@gmail.com"
+        "email" => "nassuf@gmail.com",
+
     );
 
     // ajout d'élements avec un tableau associatif
@@ -149,11 +150,21 @@ $tab2[] = "ajout_element3";
 array_push($user2,["villes"=>"nice"]);// avec array_push il y aura toujours un index
 
 // pour ajouter un element dans un tableau associatif utiliser la syntaxe suivante
+$user2["villes"]="nice";
+
 $user2["ville"]="toulouse";
  $user2["password"] = "123456";
     
 
-    var_dump($user2);
+ // var_export 
+    echo "<pre>";
+    var_export($user2);
+    echo "</pre>";
+
+    // print_r
+    echo "<pre>";
+    print_r($user2);
+    echo "</pre>";
 
     echo "<br>";
 
@@ -199,7 +210,7 @@ $user2["ville"]="toulouse";
             "id" => 123,
             "name_username" => "Nassuf",
             "email" => "nassuf@gmail.com",
-            "données_perso"=>[
+            "donnees_perso"=>[
                 "name"=>"Nassuf",
                 "age"=>25,
                 "ville"=>"Casablanca"
@@ -216,6 +227,8 @@ $user2["ville"]="toulouse";
             "email" => "nawel@gmail.com"
         ],
     ];
+
+echo "on recherche le name de Nassuf : ".$users[0]["donnees_perso"]["name"];
 
 
         
@@ -252,9 +265,9 @@ $persone=[
   "ville"=>"Casablanca"
 ];
 echo "<br>";
-echo count($persone);
+echo "longueur du tableaau personne : ".count($persone);
 echo "<br>";
-echo count($persone["age"]);
+echo 'longueur du tableau $personne["age"] : '.count($persone["age"]);
 echo "<br>";
 
 // Le tableau source

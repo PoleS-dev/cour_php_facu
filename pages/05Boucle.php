@@ -9,6 +9,8 @@ error_reporting(E_ALL);
 
 // boucle FOR 
 
+echo "<h3>boucle FOR </h3>";
+
 $tab = ["123", "124", "125"];
 
 var_dump($tab);
@@ -22,17 +24,17 @@ for ($i = 1; $i < count($tab); $i++) {
 
 // boucle for dans un tableau associatif
 
-$tab2 = [
-    "id" => 123,
-    "email" => "gg_gmail.com",
-    "age" => 25
-];
+// $tab2 = [
+//     "id" => 123,
+//     "email" => "gg_gmail.com",
+//     "age" => 25
+// ];
 
-// for($i=0 ; $i<count($tab2);$i++){
+//  for($i=0 ; $i<count($tab2);$i++){
 
 // echo $tab2[$i]."<br>";
 
-// }
+//  }
 
 // cette boucle me créer une erreur car la boucle for ne peux pas boucler un tableau associatif n'ayant pas d'index.
 
@@ -47,15 +49,36 @@ $tab2 = [
 
 
 // FOREACH 
+echo "<h3>la boucle FOREACH</h3>";
 // la boucle foreach() fonctionne UNIQUEMENT sur les tableaux ou objets, erreur si on boucle sur un variable non array( tableau) 
 
 // le mot clé " as " est OBLIGATOIRE 
 
 
 // Il ya deux façon d'ecrire la boucle Foreach : 
+echo '<h5> tableau $users3 </h5>';
+$users3= [
+
+    "id" => 123,
+    "email" => "gg_gmail.com",
+    "age" => 25
+
+];
 
 
 
+foreach($users3 as $value){
+    echo $value."<br>";
+}
+
+
+foreach($users3 as $key=>$value){
+    
+    echo $key ." : ".  $value."<br>";
+}
+
+
+echo '<h5> tableau $users </h5>';
 $users = [
 
     "id" => 123,
@@ -71,13 +94,13 @@ foreach ($users as $valeur) {
 
 echo "<br>";
 
-foreach ($users as $clé => $valeur) {
+foreach ($users as $cle => $valeur) {
 
-    echo "je suis la clé : " . $clé . " et je suis  la valeur : " . $valeur . "<br>";
+    echo "je suis la clé : " . $cle . " et je suis  la valeur : " . $valeur . "<br>";
 }
 
 // foreach avec un tableau indexé 
-
+echo '<h5> tableau $ville </h5>';
 $ville = [" toulon", "buenos-aires", "barcelone"];
 
 echo "<br>";
@@ -94,14 +117,56 @@ foreach ($ville as $index => $valeur) {
 }
 
 
+// boucler un  tableau multidimentionel
+echo "<h3> boucler dans un tableau multidimentionnel  </h3>";
+echo '<h5> tableau $user5 </h5>';
+
+$users5= [
+    
+    "id" => 123,
+    "email" => [
+        "test" => "test2",
+        "test1" => "test3",
+        "test2" => "test3",
+    ],
+    "age" => 25
+    
+];
+
+foreach($users5["email"] as $cleArno =>$arno){// on entre dans le tableau email et on le boucle on récupère les valeurs et ses clés
+    
+    echo  $cleArno . " : ". $arno ."<br>";
+}
+echo '<h5> tableau $tab5 </h5>';
+$tab5=[
+    [1,2,3],
+    [4,5,6],
+    [7,8,9]
+];
+ echo "<pre>";
+ var_export($tab5);
+ echo "</pre>";
+
+foreach($tab5 as $index=> $tabIndex){
+  // on affiche l'index des tableaux ( tabIndex est un tableau)
+    echo "<hr> tableau index : $index <hr>";
+    foreach($tabIndex as $value){
+// on fait une 2eme boucle pour boucler $tabIndex pour afficher ses valeurs    
+        echo "value : $value <br> ";
+    }
+}
+
 // boucle while
-
-
+echo "<h3> boucle while  </h3>";
 
 $i = 0; // valeur de départ de la boucle
 
-while ($i < 5) { // tant que $i est inferieur à 5 nous entrons dans la boucle
-    echo "$i---"; //tu affiche la valeur de $i
+while ($i <= 5) { // tant que $i est inferieur à 5 nous entrons dans la boucle
+    if( $i==5){
+        echo $i;
+    }else{
+        echo "$i---"; //tu affiche la valeur de $i
+    }
     $i++; // on onblie pas d'incrémenter de 1 à chaque tour de boucle pour ne pas avoir une boucle infinie
 } // pas besoin de ; 
 
@@ -110,24 +175,17 @@ echo "<br>";
 
 $j = 11;
 
+echo "<h3> boucle do...while  </h3>";
 do {
-
+    
     echo $j++ . " ";
     echo "je fais un tour de boucle <br>";
-} while ($j > 10 && $j < 20);
+} while ($j > 10 && $j <= 20);
 
 //  pour exo 1 pour verifier si nombre est pair utiliser modulo % si $nombre % 2 ===0 donc $nombre est paire sinon non paire
 
 
-date('Y');
-
-
-
-
-
-
-
-
+echo "<h3> execices </h3>";
 
 
 //exo 1 

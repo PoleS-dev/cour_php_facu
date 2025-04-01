@@ -55,7 +55,7 @@ echo "<h3>la boucle FOREACH</h3>";
 // le mot clé " as " est OBLIGATOIRE 
 
 
-// Il ya deux façon d'ecrire la boucle Foreach : 
+// Il ya deux façons d'ecrire la boucle Foreach : 
 echo '<h5> tableau $users3 </h5>';
 $users3= [
 
@@ -66,12 +66,12 @@ $users3= [
 ];
 
 
-
+// 1ere façon
 foreach($users3 as $value){
     echo $value."<br>";
 }
 
-
+//2eme façon
 foreach($users3 as $key=>$value){
     
     echo $key ." : ".  $value."<br>";

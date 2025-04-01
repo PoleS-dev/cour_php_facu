@@ -26,7 +26,7 @@ $text = "   je suis un long texte très très long  text et pas de place dans la
 echo $text . "<br>";
 
 // strlen
-echo "longueur du texte : " . strlen($text) . "<br>"; // longueur de chaine = 79 il calcule les espaces vides
+echo "longueur du texte : " . strlen($text) . "<br>"; // longueur de chaine = 79 il aussi calcule les espaces vides
 
 
 //substr
@@ -37,6 +37,9 @@ echo $text_modif . " ... <br> ";
 
 // trim
 echo strlen(trim($text)); // efface les espaces au début et à la fin de la chaine de caractère // renvoie 72
+
+
+//************ */
 
 
 // fonction pour tableaux
@@ -71,7 +74,9 @@ foreach($tab as $cle=>$valeur){
 
 ?>
 
-<h4> creation d'une fonction</h4>
+
+
+<h4> création d'une fonction</h4>
 
 <p>les fonctions sont un morceaux de codes encapsulés dans les accolades et portant un nom, qu'on appelle au besoin pour executer un script</p>
 <?php 
@@ -87,6 +92,8 @@ hr();
 hr();
 hr();
 hr();
+
+
 
 // fonction avec return 
 
@@ -131,26 +138,31 @@ echo calcul();// donne 5
 // Variables locales et varaibles globales
 
 
+echo "<h3>de l'espace local à l'espace global</h3>";
 // de l'espace local à l'espace global
 $var6=6; //c'est une variable global en dehor d'une fonction
 
 function jour(){
     $jour ="mardi";// la variable $jour est une variable locale de la fonction
     return $jour;
-
+    
 }
 
 echo jour();
-$jourMardi=jour();// j'ai stoocker la veleur de de $jour (variable locale) dans une nouvelle variable
+$jourMardi=jour();// j'ai stocké la valeur de  $jour (variable locale) dans une nouvelle variable
 
+echo "<h3>de l'espace local à l'espace global</h3>";
 // de l'espace global au local
 
-$pays="Maroc"; // varaible global
+$pays="Maroc"; // variable global
+
 function afficherPays(){
 
-    global $pays;// le mot clé global permet de récuperer une avaraible global au sein d'une fonction
+    global $pays;// le mot clé global permet de récuperer une variable globale au sein d'une fonction
     echo $pays; // affiche Maroc
 }
+
+afficherPays();// on appelle la fonction 
 
 
 

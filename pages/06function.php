@@ -68,6 +68,7 @@ foreach($tab as $cle=>$valeur){
         echo "<hr>  $cle est : $valeur <hr>";
     }
 
+    greenUser("Mathieu");
 }
 
 
@@ -165,27 +166,227 @@ function afficherPays(){
 afficherPays();// on appelle la fonction 
 
 
+// exo 
+
+
+greenUser("Mathieu");
+/*
+ 
+1. Fonction sans paramètres et sans valeur de retour
+Exercice : Créez une fonction appelée greet() qui affiche "Hello, world!" lorsqu'elle est appelée.
+*/
+
+function hello(){
+
+    echo "bonjour";
+}
+
+echo hello();
+
+/*
+2. Fonction avec paramètres et sans valeur de retour
+Exercice : Créez une fonction appelée greetUser() qui prend un paramètre $name et affiche "Hello, [name]!" où [name] est la valeur passée à la fonction.
+*/
+
+function greenUser($name){
+
+
+    echo "hello $name";
+}
+
+greenUser("Mathieu");
+
+
+/*
+3. Fonction avec paramètres et avec valeur de retour
+Exercice : Créez une fonction appelée sum() qui prend deux paramètres $a et $b, les additionne, et retourne le résultat.
+*/
+
+function sum($a,$b){
+
+    $resultat=$a+$b;
+    return $resultat;
+
+}
+
+sum(1,5);
+
+
+
+/*
+4. Fonction qui calcule la somme des nombres d'un tableau
+Exercice : Créez une fonction appelée sumArray($numbers) qui prend un tableau de nombres $numbers en paramètre et retourne la somme de tous les éléments du tableau.
+*/
+ function sumArray($number){
+
+    if(!is_array($number)){
+    
+   return "pas un tableau";
+
+    }
+
+    if(!is_numeric (array_sum($number))){
+        return "pas des integer";
+    }
+
+
+    return array_sum($number);
+
+ }
+$liste=[1,2,3];
+ echo sumArray($liste);
+
+ 
+
+
+/*
+5. Fonction avec paramètre par défaut
+Exercice : Créez une fonction appelée greetWithTime() qui prend deux paramètres, un nom $name et un moment de la journée $timeOfDay (par défaut "day"), et qui affiche "Good [timeOfDay], [name]!
+ 
+Rappel = vous pouvez ajouter une valeur au paramètre de fonction directement comme on a vu (exemple : function salut($name='Cynthia'){echo "Salut $name";})
+".
+*/
+
+
+function greeWithTime($name,$timeOfDay="day"){
+
+echo "good" ." ". $timeOfDay . " "  .  $name."<br>";
+
+
+}
+
+$julia="julia";
+$morning="morning";
+greeWithTime($julia,$morning);
 
 
 
 
+$time=date("H");
+echo $time;
+
+
+function getTime($name,$timeNow="day"){
+    
+    if(is_numeric($timeNow)){
+        
+        if($timeNow >=6 && $timeNow <=12){
+            $timeNow="morning";
+            echo "good" ." ". $timeNow . " "  .  $name."<br>";
+
+    }
+        if($timeNow >=13 && $timeNow <=20){
+            $timeNow="aftenoon";
+            echo "good" ." ". $timeNow . " "  .  $name."<br>";
+
+    }
+        if($timeNow >=21 && $timeNow <=5){
+            $timeNow="night";
+            echo "good" ." ". $timeNow . " "  .  $name."<br>";
+
+    }
+
+
+}
+
+echo "good" ." ". $timeNow . " "  .  $name."<br>";
+
+ }
+
+ getTime($julia,$time);
+
+
+
+/*
+6. Fonction qui retourne un tableau
+Exercice : Créez une fonction appelée getFruits() qui ne prend aucun paramètre et retourne un tableau contenant trois noms de fruits.
+*/
+
+function getFruit(){
+    $tab=["fraise","pomme","orange"];
+
+    return $tab;
+
+}
+
+var_export($tab=getfruit());
+
+
+
+/*
+7. Fonction avec une chaîne de caractères comme paramètre
+Exercice : Créez une fonction appelée reverseString($str) qui prend une chaîne de caractères $str en paramètre et retourne cette chaîne en ordre inversé.
+*/
+
+function reversTring($str){
+
+if(is_string($str) && strlen($str)>1 ){
+
+    return strrev($str);
+}else{
+    return "pas un string ou string trop court";
+}
+
+}
+
+
+/*
+8. Fonction avec paramètres et vérification de type
+Exercice : Créez une fonction appelée divide($a, $b) qui prend deux paramètres $a et $b. La fonction doit vérifier que $b n'est pas égal à 0 avant de diviser $a par $b et retourner le résultat. Si $b est égal à 0, la fonction doit retourner un message d'erreur.
+*/
+
+
+function divide($a,$b){
+
+    if($b==0){
+        return "erreur 0";
+    }else{
+        $resultat=$a/$b;
+        return $resultat;
+    }
+
+}
+
+divide(2,6);
+
+
+
+/*
+10. Fonction avec une condition complexe
+Exercice : Créez une fonction appelée checkEligibility($age, $hasLicense) qui prend en paramètre un âge $age et un booléen $hasLicense. La fonction doit retourner "Eligible" si l'utilisateur a 18 ans ou plus et possède un permis de conduire, sinon "Not Eligible".
+ 
+*/
+
+$user=[
+
+    "age"=>14,
+    "hasLicence"=>true,
+];
 
 
 
 
+function checkEligibility($user){
 
+    if(is_array($user) && array_key_exists("age",$user) && array_key_exists("hasLicence",$user) ){
+      
 
+            if( ($user["age"] )   >=18 &&  ($user["hasLicence" ])==true){
 
+                return "Éligible";
+            }else{
+                return "Not éligible";
+            }
 
+         
 
+    }else{
+        return "données invalides";
+    }
+ 
+}
 
-
-
-
-
-
-
-
+echo checkEligibility($user);
 
 
 

@@ -4,27 +4,21 @@
 
 <?php
 
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
 
-
-
-// print '<pre>';
-// print_r($_POST);
-// print '<pre>';
 
 var_dump($_GET);
 
-// if(empty($_POST["pseudo"]) || empty($_POST["email"]))
-// {
 
-//     echo "erreur tous les champs doivent être remplis";
-// }else{
+if(empty($_POST["pseudo"]) || empty($_POST["email"]))
+{
 
-//     echo "prenom posté :  $_POST[pseudo] <br> " ;
-//     echo "email posté :  $_POST[email] <br> " ;
+    echo "erreur tous les champs doivent être remplis";
+}else{
 
-// }
+    echo "prenom posté :  $_POST[pseudo] <br> " ;
+    echo "email posté :  $_POST[email] <br> " ;
+
+}
 
  // ************* autre possibilité****************
 

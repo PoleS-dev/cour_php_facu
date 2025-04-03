@@ -31,17 +31,5 @@
 
 
 
-<form action="back.php?vetement=chemise&couleur=rouge"  method="post"  >
-
-
-	
-	<label>Pseudo </label><br>
-	<input type="text" name="pseudo"><br><br>
-
-	<label>Email</label><br>
-	<input type="text" name="email"><br><br>
-
-	<input type="submit"  value="Envoyer">
-</form>
 </body>
 </html>

@@ -11,13 +11,15 @@ var_dump($_GET);
 ?>
 
 <p> <?php
+// htmlspecialchars();
+
 
 if(isset($_GET["nom"]) ){// verifie si la clé "nom" existe
     echo $_GET["nom"]."<br>" ; 
     
 }else{ // si clé non n'existe pas alors tu affiche article
     
-    echo $_GET["article"]."<br>" ; 
+    echo "<p>".htmlspecialchars($_GET['article'])."</p>" ; 
 }
 
 

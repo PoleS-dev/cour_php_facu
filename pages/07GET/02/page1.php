@@ -46,10 +46,11 @@ foreach($produits as $index ){
 
     // construction de l'url 
 
+
     $url=" page2.php?article=".urlencode($index["article"])."&couleur=".urlencode($index["couleur"])."&description=".urlencode($index["description"])."&prix=".urlencode($index["prix"]);
 
 
-    echo "<p><a href=\"$url\">Voir le produit : ".$index['article'] ."</a></p>";
+    echo "<p> <a href=\"$url\"> Voir le produit : ".$index['article'] ." </a> </p>";
 
     
 
@@ -71,9 +72,10 @@ foreach($produits as $index ){
 // 👉 L’URL est cassée à cause de l’espace et des caractères spéciaux.
 
 $nom = 'Jean Pierre';
- $ville = 'St-Étienne';
+$ville = 'St-Étienne';
  
  $url = 'page2.php?nom=' . urlencode($nom) . '&ville=' . urlencode($ville);
+
  echo '<a href="' . $url . '">Aller2</a>';
 
 // URL générée :

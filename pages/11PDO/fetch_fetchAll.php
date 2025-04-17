@@ -25,7 +25,7 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute(); // Même sans paramètres, on exécute
 
 
-$eleve = $stmt->fetch(PDO::FETCH_ASSOC);
+$eleve = $stmt->fetch();
 echo "<h3>Un seul élève (avec fetch)</h3>";
 echo "ID: {$eleve['id']} - Nom: {$eleve['nom']} - PC: {$eleve['ordinateur_numero']}<br>";
 

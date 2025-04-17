@@ -1,12 +1,15 @@
 <?php
 
 
-
+$post =[
+    "id"=>12,
+    "nom"=>"oridi"
+];
 
 
 // UPDATE - Mise à jour du nom d'un élève
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['modifier'])) {
-    $id = (int) $_POST['id'];
+    $id =  $_POST['id'];
     $nouveauNom = trim($_POST['nom']);
 
     // Requête SQL préparée pour modifier le nom

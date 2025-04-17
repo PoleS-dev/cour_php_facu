@@ -18,8 +18,12 @@ require_once "config/bdd.php";
             margin: 20px;
         }
     </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
 </head>
 <body>
+    <header>
+        <a href="exemple/boulangerie.php">exemple boulangerie</a>
+    </header>
 <h1>CRUD en PHP avec PDO</h1>
 <p>CRUD est un acronyme qui désigne les quatre opérations de base que l'on peut effectuer sur des données :</p>
 <ul>

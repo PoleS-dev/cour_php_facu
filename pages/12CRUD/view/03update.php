@@ -4,7 +4,7 @@
 <!-- Formulaire de mise à jour -->
 <h2>Modifier le nom d’un élève</h2>
 <form method="POST">
-    <label for="id">ID :</label>
+   
     <input type="number" name="id" required>
     <br>
     <label for="nom">Nouveau nom :</label>

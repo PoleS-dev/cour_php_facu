@@ -1,26 +1,26 @@
 <?php
 // Liste des 20 exercices PDO sur la base "bibliotheque"
 $exercices = [
-    "Afficher tous les livres de la base (titre, année, genre).",
-    "Afficher le nom de tous les auteurs triés par ordre alphabétique.",
-    "Récupérer les informations du livre avec l'id = 2.",
-    "Afficher tous les membres inscrits avant une date donnée (ex : 2025-04-05).",
-    "Afficher uniquement les titres des livres publiés après l'année 1950.",
-    "Afficher les livres d’un auteur donné (nom passé en variable).",
-    "Afficher tous les emprunts d’un membre (par email).",
-    "Afficher les livres correspondant à un genre donné.",
-    "Afficher les membres ayant emprunté un livre spécifique (par titre).",
-    "Afficher les emprunts effectués entre deux dates données.",
-    "Ajouter un nouveau membre avec son nom et email.",
-    "Ajouter un nouveau livre avec son titre, année, genre et auteur.",
-    "Ajouter un nouvel emprunt pour un membre et un livre donnés.",
-    "Modifier l’email d’un membre existant (UPDATE).",
-    "Supprimer un livre par son ID (DELETE).",
-    "Afficher tous les emprunts avec : nom du membre, titre du livre, nom de l’auteur, date.",
-    "Afficher tous les livres avec le nom de leur auteur (jointure).",
-    "Afficher les livres qui n’ont jamais été empruntés.",
-    "Afficher les membres qui n’ont jamais emprunté de livre.",
-    "Afficher le nombre de livres empruntés par chaque membre."
+    "1 Afficher tous les livres de la base (titre, année, genre).",
+    "2 Afficher le nom de tous les auteurs triés par ordre alphabétique.",
+    "3 Récupérer les informations du livre avec l'id = 2.",
+    "4 Afficher tous les membres inscrits avant une date donnée (ex : 2025-04-05).",
+    "5 Afficher uniquement les titres des livres publiés après l'année 1950.",
+    "6 Afficher les livres d’un auteur donné (nom passé en variable).",
+    "7 Afficher tous les emprunts d’un membre (par email).",
+    "8 Afficher les livres correspondant à un genre donné.",
+    "9 Afficher les membres ayant emprunté un livre spécifique (par titre).",
+    "10 Afficher les emprunts effectués entre deux dates données.",
+    "11 Ajouter un nouveau membre avec son nom et email.",
+    "12 Ajouter un nouveau livre avec son titre, année, genre et auteur.",
+    "13 Ajouter un nouvel emprunt pour un membre et un livre donnés.",
+    "14 Modifier l’email d’un membre existant (UPDATE).",
+    "15 Supprimer un livre par son ID (DELETE).",
+    "16 Afficher tous les emprunts avec : nom du membre, titre du livre, nom de l’auteur, date.",
+    "17 Afficher tous les livres avec le nom de leur auteur (jointure).",
+    "18 Afficher les livres qui n’ont jamais été empruntés.",
+    "19 Afficher les membres qui n’ont jamais emprunté de livre.",
+    "20 Afficher le nombre de livres empruntés par chaque membre."
 ];
 
 ?>

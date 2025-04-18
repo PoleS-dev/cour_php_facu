@@ -6,10 +6,11 @@
 
 // DELETE - Suppression d'un élève
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST["sup"], $_POST['id'])) {
-    $isUserSup = (int) $_POST['id']; // On caste l'ID en entier par sécurité
+    $isUserSup =  $_POST['id']; 
 
     $stmt = $pdo->prepare("DELETE FROM eleves WHERE id = :id");
-    $stmt->execute([':id' => $isUserSup]);
+    $stmt->execute([
+        ":id"=>$isUserSup]);
 
     // On vérifie si une ligne a bien été supprimée
     if ($stmt->rowCount() > 0) {

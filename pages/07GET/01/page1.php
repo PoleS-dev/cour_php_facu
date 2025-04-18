@@ -6,7 +6,35 @@ error_reporting(E_ALL);
 
 var_dump($_GET);
 
+
 ?>
+**
+* SUPERGLOBALES PHP : Définitions détaillées
+*
+* ➤ $_GET :
+*   Permet de récupérer les données envoyées par l'URL (ex : page.php?nom=Jean).
+*   Les données sont visibles dans l’URL, donc non confidentielles.
+*   Utilisé pour les recherches, les liens rapides, ou les filtres.
+*
+* ➤ $_POST :
+*   Permet de récupérer les données envoyées par un formulaire avec method="POST".
+*   Les données ne sont pas visibles dans l’URL. Convient pour les données sensibles (ex : mot de passe).
+*   Utilisé pour créer, modifier ou supprimer des données.
+*
+* ➤ $_SESSION :
+*   Sert à stocker des données côté serveur pour un utilisateur donné.
+*   Les données restent disponibles d’une page à l’autre tant que la session n’est pas détruite ou expirée.
+*   Idéal pour conserver un panier, un état de connexion, ou un compteur de visites.
+*   Nécessite un appel à session_start() au début du script.
+*
+* ➤ $_COOKIE :
+*   Stocke des informations côté client (navigateur) sous forme de petits fichiers.
+*   Utile pour garder des préférences (ex : pseudo, thème, dernier produit consulté).
+*   Peut être défini avec setcookie(nom, valeur, expiration).
+*   Attention : le cookie n’est disponible qu’à partir du prochain chargement de page.
+*
+* ➤ Toutes ces variables sont dites "superglobales" car elles sont disponibles dans tous les contextes PHP automatiquement.
+*/
 <h1>Superglobal $_GET</h1>
 <h2>page 1</h2>
 

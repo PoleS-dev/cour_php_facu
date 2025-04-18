@@ -22,7 +22,7 @@ require_once "config/bdd.php";
 </head>
 <body>
     <header>
-        <a href="exemple/boulangerie.php">exemple boulangerie</a>
+        <a href="exemple/boulangerieCrud/index.php">exemple CRUD boulangerie</a>
     </header>
 <h1>CRUD en PHP avec PDO</h1>
 <p>CRUD est un acronyme qui désigne les quatre opérations de base que l'on peut effectuer sur des données :</p>

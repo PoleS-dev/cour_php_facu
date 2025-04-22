@@ -14,11 +14,11 @@
 $nom = "Alice";
 $age = 25;
 
-function direBonjour($nom) {
-    return "Bonjour " . $nom;
+function direBonjour($nom, $age) {
+    return "Bonjour " . $nom . " et tu as " . $age . " ans <br>";
 }
 
-echo direBonjour($nom);
+echo direBonjour($nom, $age);
 
 // Avantages :
 // Simple à comprendre
@@ -48,14 +48,14 @@ class Utilisateurs {
     }
     
     public function direBonjour() {
-        return "Bonjour " . $this->nom . " et j'ai " . $this->age . " ans";
+        return "Bonjour " . $this->nom . " et tu as " . $this->age . " ans <br>";
     }
 }
 
 $u = new Utilisateurs("Alice", 25);
 echo $u->direBonjour(); // Bonjour Alice
-echo $u->nom;
-$u->nom = "Bob";
+echo $u->nom ."<br>";
+$u->nom = "Bob ";
 echo $u->direBonjour(); // Bonjour Bob
 
 
@@ -74,7 +74,26 @@ La Programmation Orientée Objet (POO) est un paradigme de programmation basé s
 
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
+// 2. Exemple simple de classe
+class Voitures
+{
+    // Propriétés
+    public $marque;
+    public $couleur;
 
+    // Méthode
+    public function klaxonner()
+    {
+        echo "Tuut tuut !";
+    }
+}
+// . Créer un objet à partir d’une classe
+
+$maVoiture = new Voitures();
+$maVoiture->marque = "Peugeot";
+$maVoiture->couleur = "Rouge";
+
+$maVoiture->klaxonner(); 
 
 
 class Voiture {
@@ -96,7 +115,7 @@ class Voiture {
     }
 
 
-    
+    // Une classe est comme un plan de construction pour créer des objets. Elle définit les propriétés (attributs) et les méthodes (fonctions) que les objets créés à partir de cette classe vont avoir. 
 }
 
 // creation d'objet
@@ -166,7 +185,11 @@ class Animal {
         // Notice: Undefined variable: espece in ...
     }
 }
+// __toString() est une méthode magique qui permet de convertir un objet en chaîne de caractères PHP voit que tu fais echo $chat, donc il cherche comment convertir l’objet $chat en texte.
 
+// ➡️ Il trouve que la classe Animal a une méthode __toString().
+
+// ➡️ Donc PHP appelle automatiquement :
 $chat = new Animal("chat");
 echo $chat ."<br>"; // Affiche : Espèce : chat
 print_r($chat);
@@ -212,7 +235,7 @@ class Animale {
 
     // fonction in_array() : vérifie si une valeur existe dans un tableau,  retourne true ou false
     // fonction strtolower() : convertit une chaîne de caractères en minuscules, retourne la chaîne de caractères
-
+    // ucfirst() : convertit la première lettre d'une chaîne de caractères en majuscule, retourne la chaîne de caractères
     // Pour afficher directement l'objet
     public function __toString() {
         return "Animal de l'espèce : " . $this->getEspece();

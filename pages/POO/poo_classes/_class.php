@@ -1,4 +1,7 @@
+<?php
+namespace php_cour\pages\POO\poo_classes\_class;
 
+?>
 
 <h2>différence php procedural et POO</h2>
 
@@ -10,7 +13,6 @@
 <p>exemple</p>
 
 <?php
-
 $nom = "Alice";
 $age = 25;
 
@@ -229,7 +231,7 @@ class Animale {
         if (in_array(strtolower($espece), $especesValides)) {
             $this->espece = strtolower($espece);
         } else {
-            throw new Exception("Espèce invalide : $espece ❌");
+           echo"Espèce invalide : $espece ❌";
         }
     }
 
@@ -242,7 +244,7 @@ class Animale {
     }
 }
 
-try {
+
     $chat = new Animale("chat");
     echo $chat . "<br>"; // ✅ Affiche : Animal de l'espèce : Chat
 
@@ -250,9 +252,7 @@ try {
     echo $chat->getEspece() . "<br>"; // ✅ Affiche : Lion
 
     $chat->setEspece("table"); // ❌ Erreur levée
-} catch (Exception $e) {
-    echo "Erreur : " . $e->getMessage();
-}
+ 
 
 
 // ici je force le user a passer par le setter et entrer une valeur correcte (setespece )
@@ -300,7 +300,7 @@ class Utilisateur {
 
     public function setNom($nom) {
         if (strlen($nom) < 2) {
-            throw new Exception("Nom trop court !");
+            echo"Nom trop court !";
         }
         $this->nom = ucfirst($nom);
     }

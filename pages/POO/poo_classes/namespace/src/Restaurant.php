@@ -12,3 +12,5 @@ class Restaurant extends Entreprise
     public function getCodePostal(): string { return $this->codePostal; }
     public function getPays(): string { return $this->pays; }
 }
+
+

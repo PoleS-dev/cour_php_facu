@@ -1,7 +1,7 @@
 <?php
 namespace App;
 
-final class Salarie
+final class Salarie 
 {
     public function __construct(
         protected string $nom,

@@ -57,6 +57,8 @@ class StatutCommande
     public const ANNULEE = 'annulee';
 }
 
+//pourquoi utiliser des constantes et define ici?
+
 $statut = StatutCommande::VALIDE;
 
 switch ($statut) {

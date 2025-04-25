@@ -181,15 +181,19 @@ abstract class Animals {
 
 }
  
-class Chiens extends Animals {
+ class Chiens extends Animals {
 
-    public function crier() {
+      public function crier() {
 
         echo "Ouaf Ouaf 🐶<br>";
 
     }
 
 }
+
+
+
+
  
 $rex = new Chiens("Rex");
 
@@ -198,7 +202,114 @@ $rex->sePresenter();
 $rex->crier();
 
 
+
+
+
 ?>
+
+<h2>Utilisation de final</h2>
+
+<p>La mot-clé final empêche la surcharge (redefinition) d'une méthode.</p>
+<p>Elle peut être utilisée sur des classes, des méthodes, ou des propriétés.</p>
+<p> Si au début d"une class il y a final, faire un heritage de cette class est impossible, c'est la classe final sans enfants possible</p>
+
+<p>
+
+    final class MaclassFinal, creation de la class final sans enfants possible
+</p>
+
+<p>
+
+    class ClassEnfant extends MaclassFinal, on ne peut pas faire de heritage de la class final, cela va donné une erreur
+</p>
+
+<p>
+    quand on déclare final dans une methode, les classes qui hérite ne pourront pas redefinir la methode 
+</p>
+
+
+<p>pourquoi utiliser final sur une methode ? </p>
+
+<ul>
+    <li> Pour verrouiller un comportement spaécifique qui ne doit pas être modifié</li>
+    <li>Pour garantir la sécurité des données</li>
+    <li>Pour eviter les erreur et les abus d'heritage</li>
+</ul>
+
+<?php 
+
+class Employe
+{
+    protected string $nom;
+ 
+    public function __construct(string $nom)
+    {
+        $this->nom = $nom;
+    }
+ 
+    final public function travailler()
+    {
+        echo "$this->nom travaille sérieusement.<br>";
+    }
+}
+ 
+class Manager extends Employe
+{
+    // ❌ ERREUR ! On ne peut pas redéfinir une méthode final
+    /*
+    public function travailler() {
+        echo "$this->nom travaille en dirigeant l'équipe.<br>";
+    }
+    */
+    public function diriger()
+    {
+        echo "$this->nom dirige une équipe.<br>";
+    }
+}
+ 
+$m = new Manager("Sophie");
+$m->travailler(); // fonctionne
+$m->diriger();
+
+
+
+?> 
+
+
+<h2> trait</h2>
+
+// Un trait en PHP est une sorte de bloc de code réutilisable.
+// Il permet de partager des méthodes ou propriétés entre plusieurs classes,
+// sans avoir à utiliser l'héritage (extends).
+//
+// Contrairement à une classe, un trait ne peut pas être instancié directement.
+// On l’utilise dans une classe avec le mot-clé "use".
+//
+// C’est très utile quand plusieurs classes ont des comportements identiques,
+// mais qu’elles n’ont pas de lien logique pour hériter d’une même classe.
+//
+// Exemple :
+//
+// trait Logger {
+//     public function log($message) {
+//         echo "[LOG] " . $message;
+//     }
+// }
+//
+// class Utilisateur {
+//     use Logger;
+// }
+//
+// $u = new Utilisateur();
+// $u->log("Utilisateur connecté.");  // Affiche : [LOG] Utilisateur connecté.
+//
+// Ce système permet de factoriser du code sans casser la hiérarchie objet.
+
+
+
+
+
+
 
 
 

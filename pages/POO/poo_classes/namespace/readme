@@ -1,0 +1,128 @@
+# 🧠 Mini Application POO PHP : Gestion d'Entreprise & Salariés
+
+Ce projet est une mini application PHP orientée objet qui illustre :
+
+-  L'utilisation de **classes abstraites**
+-  La **réutilisation de code avec des traits**
+-  Le **chargement automatique des classes** via Composer (PSR-4)
+-  La gestion de plusieurs types d'entreprises (`Startup`, `Restaurant`)
+-  Une relation **Entreprise ⇄ Salariés**
+
+---
+
+
+
+---
+
+###  Option 1 : Utiliser Composer (RECOMMANDÉ)
+
+>  Pour un usage professionnel ou si Composer est installé
+
+1. Télécharger ou cloner le projet
+2. Ouvrir un terminal dans le dossier du projet
+3. Installer les dépendances Composer :
+
+```bash
+composer install
+composer dump-autoload
+
+## 🎒 Démo rapide (si Composer est déjà installé)
+
+1. Dézippez le projet
+2. Dans un terminal :
+   composer install
+   composer dump-autoload
+
+3. Lancez :
+   php -S localhost:8000 -t public
+4. Ouvrez : http://localhost:8000
+
+
+
+
+Option 2 : Sans Composer (mode débutant)
+ Pour les environnements sans Composer 
+
+Télécharger le projet
+
+Éditer public/index.php
+
+Ajouter les inclusions manuelles des classes :
+
+
+
+require_once '../src/Entreprise.php';
+require_once '../src/Salarie.php';
+require_once '../src/Startup.php';
+require_once '../src/Restaurant.php';
+require_once '../src/GereSalaries.php';
+
+
+
+
+==========================================
+🎓 GUIDE D'INSTALLATION COMPOSER (Windows)
+==========================================
+
+Ce fichier explique comment installer Composer sur Windows,
+et vérifier que tout fonctionne correctement.
+
+---
+
+🔹 ÉTAPE 1 : Télécharger l’installateur
+--------------------------------------
+
+1. Aller sur le site officiel : https://getcomposer.org/download/
+2. Télécharger le fichier : Composer-Setup.exe
+3. Lancer l'installation
+
+---
+
+🔹 ÉTAPE 2 : Suivre l’installation
+----------------------------------
+
+- Laissez les options par défaut
+- Vérifiez que le chemin vers PHP est correct
+  (Exemple : C:\xampp\php\php.exe ou C:\laragon\bin\php\php-8.x.x\php.exe)
+- Terminez l’installation
+
+---
+
+🔹 ÉTAPE 3 : Vérifier que Composer est bien installé
+----------------------------------------------------
+
+1. Ouvrir le terminal (CMD ou PowerShell)
+2. Taper la commande :
+
+   composer --version
+
+✅ Si tout fonctionne, vous verrez un message comme :
+   Composer version 2.6.5 2024-04-03 14:05:06
+
+---
+
+🔧 Si la commande 'composer' n’est pas reconnue :
+--------------------------------------------------
+
+- Redémarrer l’ordinateur ou le terminal
+- Vérifier que le dossier d’installation de Composer est bien dans votre variable PATH
+- Taper :
+
+   where composer
+
+➡ Cela doit afficher le chemin vers composer.bat
+
+---
+
+📌 BONUS
+--------
+
+🔸 Mettre à jour Composer :
+   composer self-update
+
+🔸 Voir toutes les commandes disponibles :
+   composer list
+
+---
+
+👏 Bravo, vous êtes prêt à utiliser Composer avec vos projets PHP !

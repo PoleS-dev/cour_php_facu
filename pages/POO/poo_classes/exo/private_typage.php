@@ -1,5 +1,6 @@
 <?php
-declare(strict_types=1);
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
 /*
 =====================================================
@@ -19,35 +20,90 @@ Créer une classe `JoueurDeBasket` représentant un joueur avec :
 =====================================================
 */
 
-class JoueurDeBasket {
+class JoueurDeBasket
+{
+
     private string $nom;
     private int $numero;
-    private int $points=0;
+    private int $points;
 
-    public function __construct(string $nom, int $numero) {
-        $this->nom = ucfirst($nom);
-        $this->numero = $numero;
-       
+    public function __construct(string $a, int $b)
+
+    {
+        $this->nom = $a;
+        $this->numero = $b;
+        $this->points = 0;
     }
 
-    public function getPoints(): int { return $this->points; }
-
-    public function marquerPoints(int $nb): void {
-        $this->points += $nb;
+    public function getPoints(): int
+    {
+        return $this->points;
     }
 
-    public function getStatistiques(): string {
-        return "Joueur {$this->nom} (maillot numéro : {$this->numero}) - Points marqués : {$this->points}";
+    public function marquerPoint(int $nb): void
+    {
+
+        $this->points = $this->points + $nb;
+        // $this->points += $nb;
     }
-}   
 
-// Test
-$joueur = new JoueurDeBasket("dada", 7);
-$joueur->marquerPoints(12);
-$joueur->marquerPoints(8);
+    public function getStatistiques(): string
+    {
 
-echo "<h3>Joueur de basket</h3>";
-echo $joueur->getStatistiques() . "<br><hr>";
+        return " le joueur $this->nom avec le maillot $this->numero a marqué $this->points points";
+    }
+}
+
+$joueur1 = new JoueurDeBasket("Seckene", 4);
+$joueur2 = new JoueurDeBasket("Moussa", 10);
+
+// echo $joueur1->nom;
+
+echo $joueur1->getStatistiques();
+echo "<br>";
+
+$joueur1->marquerPoint(3);
+
+echo "<br>";
+echo $joueur1->getStatistiques();
+
+
+$joueur1->marquerPoint(5);
+
+echo "<br>";
+echo $joueur1->getStatistiques();
+
+$joueur2->marquerPoint(10);
+
+echo "<br>";
+echo $joueur1->getPoints();
+echo "<br>";
+echo $joueur2->getPoints();
+
+function totalPoint(int $a,int $b){
+    
+    echo $a+$b;
+
+}
+
+$moussa=$joueur2->getPoints();
+$seckene=$joueur1->getPoints();
+
+echo "<br>";
+
+totalPoint($moussa, $seckene);
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*
@@ -68,36 +124,55 @@ Créer une classe `ProduitEnStock` représentant un produit avec :
 =====================================================
 */
 
-class ProduitEnStock {
+class ProduitEnStock
+{
     private string $nom;
     private int $quantite;
-    private float $prixUnitaire;
+    private float $prix;
 
-    public function __construct(string $nom, int $quantite, float $prixUnitaire) {
-        $this->nom = ucfirst($nom);
+    public function __construct(string $nom, int $quantite, float $prix){
+
+        $this->nom = $nom;
         $this->quantite = $quantite;
-        $this->prixUnitaire = $prixUnitaire;
+        $this->prix = $prix;
     }
 
-    public function ajouterStock(int $nb): void {
-        $this->quantite += $nb;
-    }
+    public function ajouterStock(int $nb):string|int   { // typage d'union soit c'est un string soit c'est un int
 
-    public function valeurStock(): float {
-        return $this->quantite * $this->prixUnitaire;
-    }
+        if($nb >0){
+            return $this->quantite += $nb;
+            // $this->quantite=$this->quantite+$nb;
 
-    public function getInfos(): string {
-        return "{$this->nom} — {$this->quantite} en stock — " . $this->valeurStock() . " € de valeur";
+        }else{
+            return "le nombre doit etre positif";
+        }
+     
+
+    } 
+
+    public function valeurStock():float {
+
+        echo "<br>";
+        echo "le produit $this->nom a un stock de $this->quantite unités et un prix unitaire de $this->prix €";
+        echo "<br>";
+        return round($this->quantite * $this->prix,2) ;
+
+
     }
 }
 
-// Test
-$produit = new ProduitEnStock("chaise", 10, 29.99);
-$produit->ajouterStock(5);
+$produit1 = new ProduitEnStock("chaussure", 10, 50);
+$produit1->valeurStock();
+echo "<br>";
+echo $produit1->ajouterStock(5);
+echo "<br>";
 
-echo "<h3>Produit en stock</h3>";
-echo $produit->getInfos() . "<br><hr>";
+echo $produit1->ajouterStock(-5);
+
+
+
+
+
 
 
 /*
@@ -117,22 +192,26 @@ Créer une classe `Etudiant` avec :
 =====================================================
 */
 
-class Etudiant {
+class Etudiant
+{
     private string $prenom;
     private float $moyenne;
     private array $matieres;
 
-    public function __construct(string $prenom, float $moyenne) {
+    public function __construct(string $prenom, float $moyenne)
+    {
         $this->prenom = ucfirst($prenom);
         $this->moyenne = $moyenne;
         $this->matieres = [];
     }
 
-    public function ajouterMatiere(string $matiere): void {
+    public function ajouterMatiere(string $matiere): void
+    {
         $this->matieres[] = ucfirst($matiere);
     }
 
-    public function getProfil(): string {
+    public function getProfil(): string
+    {
         $liste = implode(", ", $this->matieres);
         return "Étudiant : {$this->prenom}<br>Moyenne : {$this->moyenne}/20<br>Matières : {$liste}";
     }

@@ -1,6 +1,5 @@
-<?php
-
-namespace php_cour\pages\POO\poo_classes\heritage;
+<?php 
+namespace App;
 /*
 |--------------------------------------------------------------------------
 | Cours sur l'héritage des classes en PHP
@@ -19,7 +18,6 @@ echo "<p>Syntaxe : <code>class Enfant extends Parent</code></p>";
 
 echo "<h2>🧩 Exemple simple</h2>";
 
-
 class Animal
 {
     public function respirer()
@@ -37,17 +35,15 @@ class Chien extends Animal
 }
 
 $rex = new Chien();
-$rex->respirer(); // méthode héritée
-$rex->aboyer();   // méthode propre
+$rex->respirer();
+$rex->aboyer();
 
 echo "<h2>🔄 Redéfinir une méthode (Override)</h2>";
 
 class Chat extends Animal
 {
-    // 🐾 CAS 1 : Redéfinition complète de la méthode (on écrase la version du parent)
     public function respirer()
     {
-         // On ignore complètement la version du parent
         echo "Le chat respire silencieusement<br>";
     }
 }
@@ -56,20 +52,16 @@ $chat = new Chat();
 $chat->respirer();
 
 echo "<h2>🔗 Utiliser parent:: pour appeler le parent</h2>";
-// 🐾 CAS 2 : On utilise parent::respirer() pour appeler la version du parent
+
 class Chat2 extends Animal
 {
     public function respirer()
     {
-          // On appelle d'abord la méthode du parent (Animal)
         parent::respirer();
-        // Puis on ajoute une phrase personnalisée
         echo "Mais moi je suis un chat 🐱<br>";
     }
 }
-// ✅ Quand tu veux conserver la logique du parent, et l’enrichir (ex : ajouter un comportement)
 
-// ❌ Si tu veux totalement changer la logique, ne mets pas parent::
 $chat2 = new Chat2();
 $chat2->respirer();
 
@@ -141,11 +133,44 @@ final class MonSingleton
 
 // class Herite extends MonSingleton {} // ERREUR : on ne peut pas hériter
 
+echo "<h2>📐 Classe abstraite (abstract)</h2>";
+echo "<p>Une classe <code>abstract</code> ne peut pas être instanciée directement.</p>";
+echo "<p>Elle sert de modèle aux classes qui l'étendent. Elle peut contenir des méthodes abstraites (à définir obligatoirement) et des méthodes normales.</p>";
+
+abstract class EmployeAbstrait
+{
+    protected string $nom;
+
+    public function __construct(string $nom)
+    {
+        $this->nom = $nom;
+    }
+
+    abstract public function travailler();
+
+    public function sePresenter()
+    {
+        echo "Bonjour, je suis $this->nom<br>";
+    }
+}
+
+class Developpeur extends EmployeAbstrait
+{
+    public function travailler()
+    {
+        echo "$this->nom code une application 🖥️<br>";
+    }
+}
+
+$dev = new Developpeur("Maxime");
+$dev->sePresenter();
+$dev->travailler();
+
 echo "<h2>📌 Récapitulatif</h2>";
 echo "<ul>
     <li><strong>extends</strong> : pour hériter d’une autre classe</li>
     <li><strong>parent::</strong> : appeler une méthode héritée</li>
     <li><strong>protected</strong> : accessible dans la classe et les enfants</li>
     <li><strong>final</strong> : empêche l’héritage ou la redéfinition</li>
+    <li><strong>abstract</strong> : modèle de base pour d’autres classes, non instanciable</li>
 </ul>";
-?>

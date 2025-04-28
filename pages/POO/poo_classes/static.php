@@ -121,3 +121,58 @@ class StringHelper
 echo "Résumé : " . StringHelper::resume("Ce texte est un peu trop long pour une ligne") . "<br>";
 
 ?>
+<!-- self static  -->
+<?php
+
+// Déclaration d'une classe parente
+class ParentClasse
+{
+    // Déclaration d'une constante TYPE dans la classe Parent
+    public const TYPE = "Parent";
+
+    // Méthode qui affiche self::TYPE
+    public function afficherTypeSelf()
+    {
+        // self::TYPE utilise la classe où CE CODE est ÉCRIT (ici ParentClasse)
+        echo "Avec self::TYPE => " . self::TYPE . "<br>";
+    }
+
+    // Méthode qui affiche static::TYPE
+    public function afficherTypeStatic()
+    {
+        // static::TYPE utilise la classe qui APPELLE la méthode (peut changer dynamiquement)
+        echo "Avec static::TYPE => " . static::TYPE . "<br>";
+    }
+}
+
+// Déclaration d'une classe enfant qui hérite de ParentClasse
+class EnfantClasse extends ParentClasse
+{
+    // On redéfinit la constante TYPE dans l'enfant
+    public const TYPE = "Enfant";
+}
+
+// Création d'un objet de type ParentClasse
+$parent = new ParentClasse();
+
+// Création d'un objet de type EnfantClasse
+$enfant = new EnfantClasse();
+
+echo "<h2>Test avec un objet ParentClasse :</h2>";
+
+// Quand on appelle afficherTypeSelf() depuis un ParentClasse
+$parent->afficherTypeSelf();    // Affiche "Parent" (self::TYPE => ParentClasse::TYPE)
+
+// Quand on appelle afficherTypeStatic() depuis un ParentClasse
+$parent->afficherTypeStatic();  // Affiche "Parent" (static::TYPE => ParentClasse::TYPE)
+
+echo "<h2>Test avec un objet EnfantClasse :</h2>";
+
+// Quand on appelle afficherTypeSelf() depuis un EnfantClasse
+$enfant->afficherTypeSelf();    // Affiche "Parent" (self::TYPE => ParentClasse::TYPE car self ne change jamais)
+
+// Quand on appelle afficherTypeStatic() depuis un EnfantClasse
+$enfant->afficherTypeStatic();  // Affiche "Enfant" (static::TYPE => EnfantClasse::TYPE grâce à Late Static Binding)
+
+?>
+

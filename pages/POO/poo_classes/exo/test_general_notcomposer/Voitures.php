@@ -1,5 +1,4 @@
 <?php
-namespace App\Vehicules;
 
 final class Voiture extends Vehicule
 {

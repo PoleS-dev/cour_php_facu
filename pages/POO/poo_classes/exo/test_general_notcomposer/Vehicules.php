@@ -1,6 +1,5 @@
-<?php
-namespace App\Vehicules;
 
+<?php
 abstract class Vehicule
 {
     public const CATEGORIE = "Général";

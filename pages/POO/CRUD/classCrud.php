@@ -31,7 +31,7 @@ abstract class Vehicule
         return $this->marque;
     }
 
-    // comment pas de return alors le typage est void
+    // comme pas de return alors le typage est void
     public function setMarque(string $marque): void
     {
         $this->marque = $marque;
@@ -78,6 +78,8 @@ abstract class Vehicule
 final class Voiture extends Vehicule
 {
 
+    public const MAX_VITESSE = 200;
+
     public function demarrer(): void
     {
         echo "La voiture démarre.";
@@ -85,9 +87,11 @@ final class Voiture extends Vehicule
 }
 
 
-
+//instanciation de la classe Camion, qui hérite de la classe Vehicule.
 final class Camion extends Vehicule
 {
+
+    public const MAX_VITESSE = 120;
 
     public function demarrer(): void
     {
@@ -101,6 +105,7 @@ final class Camion extends Vehicule
 
 final class Moto extends Vehicule
 {
+    public const MAX_VITESSE = 150;
 
     public function demarrer(): void
     {

@@ -1,3 +1,8 @@
+
+
+
+<!-- ----------------------Constante---------------------------:* -->
+
 <h2> Qu'est ce qu'une constante de classe ?</h2>
 
 
@@ -19,6 +24,8 @@ echo MaClass::MACONSTANTE;
 <P> Accès : <code>MaClass::MACONSTANTE</code></P>
 
 
+<!-- ----------------------Static--------------------------- -->
+
 <h2> qu'est ce qu' une static ?</h2>
 <p>
     le mot-clé static est utilisé pour déclarer des propriétés ou des méthodes qui appartiennent à la classe elle-même, et non aux instances de cette classe.
@@ -39,17 +46,21 @@ echo MaClass::MACONSTANTE;
 
 class CourPHP
 {
-    // constante de classe
+    // ........................constante de classe..............
     // | 📌 Immuable : La valeur ne peut pas être modifiée une fois définie
     // | 📦 Type : Constante
     // | 🔁 Partagée entre toutes les instances : OUI
-    // | 🎯 Accessible via : self::NOM ou NomClasse::NOM
+    // | 🎯 Accessible via : self::NOM ou DEPUIS L'EXTERIEUR :  NomClasse::NOM
     // | 💾 Type autorisé :(string, int, float, bool)
     // | 🛠 Usage : Pour des valeurs figées comme des statuts, des versions, des clés
     // | 🧱 Exemple : VERSION, STATUT_VALIDÉ
-
     public const VERSION = "1.0.0";
-    // propriété statique
+
+
+
+
+
+    // .......................propriété statique...............
     // ✅ Modifiable : La valeur peut changer durant l’exécution
     // | 📦 Type : Propriété de classe partagée
     // | 🔁 Partagée entre toutes les instances : OUI
@@ -60,7 +71,7 @@ class CourPHP
     public static $nbInstances = 0;
 
 
-    private static $prive = "je suis visible en passant par les methode de la classe";
+    private static $prive = "je suis visible en passant par les methodes de la classe";
     public $nom;
     public function __construct(string $nom)
     {
@@ -69,7 +80,7 @@ class CourPHP
     }
     // ici la methode est privé donc on ne peut pas l'appeller depuis l'exterieur,  
     private static function staticFunctionPrivate()
-    {;
+    {
         echo "je suis une methode static privé";
     }
 
@@ -82,6 +93,10 @@ class CourPHP
         echo self::VERSION;
     }
 }
+
+
+
+
 
 
 
@@ -147,7 +162,7 @@ switch ($statut) {
 //************************************************* */
 ?>
 
-<h2>modification d'une constante et d'une methode static</h2>
+<h2>MODIFICATION D'UNE CONSTANTE ET D'UNE METHODE STATIC</h2>
 
 <p>Comme avec define() une const ne peut être modifiable depuis l'exterieur de la class mais les class enfants peuvent la "modifier" </p>
 <p>la version d'origine ne sera pas modifié mais une elle pourra avoir une autre valeur pour une class enfant </p>
@@ -172,6 +187,7 @@ class MonExemple
 
 echo MonExemple::ROOT;
 MonExemple::mafunction();
+
 class EnfantExemple extends MonExemple
 {
     public const ROOT = "http::/localhost/page/profil";

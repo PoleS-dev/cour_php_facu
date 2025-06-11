@@ -5,7 +5,7 @@
 |--------------------------------------------------------------------------
 |
 | Ce fichier présente comment et pourquoi utiliser `static` dans une classe.
-| Il inclut des explications, exemples, démonstrations, et résumé final.
+|
 |
 */
 

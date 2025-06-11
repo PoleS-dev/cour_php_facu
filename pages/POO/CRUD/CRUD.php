@@ -39,18 +39,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"  && isset($_POST['action']) && $_POST['
             $_SESSION['objet'] = new Camion($_POST["marque"], (int)$_POST["vitesse"], (int)$_POST["nbRoues"]);
             break;
     }
-
-    
-
     // nous creons un tableau associatif avec session 
     // exemple : 
-    // $b=[]
+    // $b=[] tableau vide 
     // $b['ajout'] nous ajoutons une chaine de caractere "ajout" a $b
-    // $b['ajout']=[new Maclass(proritét1,proritét2,proritét3)]
-    //$b=[
+    // $b['ajout']=[new Maclass(proritét1,proritét2,proritét3)] // ajout d'un objet issu de la class Maclass
+    // resultat : $b=[
     //    'ajout'=>[new Maclass(proritét1,proritét2,proritét3)]
     // ]
-    // la clé ajout a une valeur qui est un objet issu de la class Maclass
+    // la clé "ajout" a une valeur qui est un objet issu de la class Maclass
 }
 
 
@@ -93,16 +90,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
 
 $objet = $_SESSION['objet'] ?? null; // si $_SESSION['objet'] n'existe pas on lui affecte null
 // $objet contient $SESSION['objet'] ou null
-echo "<br>";
-echo "<p> var dump de $\objet</p>";
-echo "<pre>";
-print_r($objet);
-echo "</pre>";
-echo "<br>";
-echo "<p> var dump de $\POST</p>";
-echo "<pre>";
-print_r($_POST);
-echo "</pre>";  
+// echo "<br>";
+// echo "<hr>";
+// echo "<p> print_r de $\objet= $\SESSION['objet']  </p>  ";
+// echo "<pre>";
+// print_r($objet);
+// echo "</pre>";
+// echo "<br>";
+// echo "<hr>";
+// echo "<p> print_r de $\SESSION sans la clé objet</p>";
+// echo "<pre>";
+// print_r($_SESSION);
+// echo "</pre>";
+// echo "<hr>";
+// echo "<br>";
+// echo "<p> print_r de $\POST</p>";
+// echo "<pre>";
+// print_r($_POST);
+// echo "</pre>";  
+// echo "<hr>";
 
 // print_r($objet);
 ?>
@@ -176,6 +182,8 @@ if ($objet) {
     echo "vitesse : " . $objet->getVitesse() . "Km/h";
     echo "<br>";
     echo "nombre de roues : " . $objet->getNbRoues();
+    echo "<br>";
+    echo "max vitesse : " . $objet::MAX_VITESSE;
     echo "<br>";
 
     // echo "<hr>";

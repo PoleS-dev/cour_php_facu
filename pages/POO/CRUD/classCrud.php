@@ -51,7 +51,11 @@ abstract class Vehicule
     {
         return $this->nbRoues;
     }
+// un setter a besoin d'un paramètre pour pouvoir modifier la valeur de la propriété
 
+// setNbRoues(parametre nbRoues) la valeur qui changera 
+// $this->nbRoues represente la propriéte nbRoues de la class Vehicule
+// $nbRoues :  c'est le parametre  qui changera la propriéte nbRoues 
     public function setNbRoues(int $nbRoues): void
     {
         $this->nbRoues = $nbRoues;
@@ -60,6 +64,12 @@ abstract class Vehicule
     public function demarrer(): void
     {
         echo "Le véhicule démarre.";
+    }
+// déclaration d'une méthode publique appelée getObjet qui retourne chaine de caractère
+// get_class() est une fonction PHP qui retourne le nom de la classe de l'objet
+// $this represente l'objet sur lequel la méthode est appelée
+    public function getObjet(): string {
+        return get_class($this);
     }
 }
 

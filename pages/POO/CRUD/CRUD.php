@@ -40,6 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"  && isset($_POST['action']) && $_POST['
             break;
     }
 
+    
 
     // nous creons un tableau associatif avec session 
     // exemple : 
@@ -92,8 +93,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
 
 $objet = $_SESSION['objet'] ?? null; // si $_SESSION['objet'] n'existe pas on lui affecte null
 // $objet contient $SESSION['objet'] ou null
-
-// var_dump($objet);
+echo "<br>";
+echo "<p> var dump de $\objet</p>";
+echo "<pre>";
+print_r($objet);
+echo "</pre>";
+echo "<br>";
+echo "<p> var dump de $\POST</p>";
+echo "<pre>";
+print_r($_POST);
+echo "</pre>";  
 
 // print_r($objet);
 ?>
@@ -202,22 +211,31 @@ if ($objet) {
         <input type="hidden" name="action" value="update"> <!-- hidden sert a cacher le champ mais a nommer la cle action avec une valeur personalisé utiliser pour la logique du form-->
 
 
+        <select name="objet">
+            <!-- on recupère la methode getObjet() de la class Vehicule qui permet de recuperer le nom de la class de l'objet -->
+             <!-- value permet de recuperer la valeur de la clé  -->
+              <!-- si le user choisit un option Moto le resultat du post sera pour ce select : $_POST = objet->Moto -->
+            <option value=<?=  $objet->getObjet() ?>> <?=  $objet->getObjet() ?></option>
+            <option value="Voiture">Voiture</option>
+            <option value="Moto">Moto</option>
+            <option value="Camion">Camion</option>
+        </select>
         <select name="marque">
-            <option value=""> <?= $objet->getMarque() ?></option>
+            <option value=<?=  $objet->getMarque() ?>> <?=  $objet->getMarque() ?></option>
             <option value="Renault">Renault</option>
             <option value="Towota">Towota</option>
             <option value="Citroen">Citroen</option>
         </select>
 
         <select name="vitesse" id="vitesse">
-            <option value=""> <?= $objet->getVitesse() ?></option>
+            <option value=<?= $objet->getVitesse() ?>> <?= $objet->getVitesse() ?></option>
             <option value="100">100</option>
             <option value="120">120</option>
             <option value="150">150</option>
         </select>
 
         <select name="nbRoues" id="nbRoues">
-            <option value=""> <?= $objet->getNbRoues() ?></option>
+            <option value=<?=  $objet->getNbRoues() ?>> <?= $objet->getNbRoues() ?></option>
             <option value="2">2</option>
             <option value="3">3</option>
             <option value="4">4</option>

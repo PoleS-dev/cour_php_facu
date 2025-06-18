@@ -5,9 +5,9 @@
 <?php
 
 
-
+echo "<pre>";
 var_dump($_GET);
-
+echo "</pre>";
 
 if(empty($_POST["pseudo"]) || empty($_POST["email"]))
 {

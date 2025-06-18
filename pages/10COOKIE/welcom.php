@@ -3,26 +3,19 @@
 <?php
 session_start();
 
+if(isset($_COOKIE['cookie_accepted']) && $_COOKIE['cookie_accepted'] === 'true'){
+    echo "<p>Cookie accepté</p>";
+}else{
+    echo "<p>Cookie refusé</p>";
+}
 
-
-var_dump($_COOKIE);
 
 ?>
 
 
-
-
-<a href="profil.php">profil</a>
-
-
 <form action="logout.php" method="post">
 <input type="submit" value="deconnexion" name="logout">
-
 </form>
-
-// run `node index.js` in the terminal
-
-console.log(`Hello Node.js v${process.versions.node}!`);
 
 
 

@@ -22,8 +22,8 @@ error_reporting(E_ALL);
 // Chaîne de connexion DSN (Data Source Name)
 $dsn = "mysql:host=localhost;dbname=societe02"; // Remplacer 'societe' par le nom réel de votre base
 $user = "root"; // Nom d'utilisateur MySQL
-$password = "votre_mot_de_passe"; // Mot de passe de l'utilisateur MySQL
- 
+$password = ""; // Mot de passe de l'utilisateur MySQL
+
 try {
     /**
      * Création d'une instance PDO pour la connexion à la base de données
@@ -53,7 +53,8 @@ try {
 
 // sans le try catch, si la connexion echoue le script s'arrête brutalement avec un message d'erreur 
 
-function debug($params){
+function debug($params)
+{
     echo "<pre>";
     print_r($params);
     echo "</pre>";
@@ -78,7 +79,7 @@ debug(get_class_methods($pdo));
 
 // ajouter un employé avec exec et INSERT INTO en sql :
 
- $pdo->exec("INSERT INTO employes (prenom, nom, sexe, service, date_embauche, salaire) VALUES ('John', 'Doe', 'M', 'RH', '2023-01-01', 2000)");
+$pdo->exec("INSERT INTO employes (prenom, nom, sexe, service, date_embauche, salaire) VALUES ('John', 'Doe', 'M', 'RH', '2023-01-01', 2000)");
 // $pdo->exec("INSERT INTO employes (prenom, nom, sexe, service, date_embauche, salaire) VALUES ('Jo', 'D', 'f', 'ouvrier', '2023-02-01', 2001)");
 
 // supprimer un employé avec exec et DELETE FROM en sql :

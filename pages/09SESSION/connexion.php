@@ -5,22 +5,26 @@ session_start();
 
 
 // var_dump($_SERVER);
-
-$user=[
-    "prenom"=>"Emanuel",
-    "nom"=>"Cacuci"
-];
-
-
-var_dump($_SESSION);
+//exemple de données recoltées
+// $_POST=[
+//     "prenom"=>"Emanuel",
+//     "nom"=>"Cacuci"
+// ];
+if(isset($_SESSION['user'])){
+echo "<pre>";
+var_dump($_SESSION['user']);
+echo "</pre>";
+}
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     // nous remplissons le tableau $_SESSION par les données recoltées par la soumission du formulaire
    
-    $_SESSION['prenom'] = $_POST['prenom'];// syntaxe pour ajouter un
+    $_SESSION['user']['prenom'] = $_POST['prenom'];// syntaxe pour ajouter un element dans un tableau
     
-    $_SESSION['nom']=  $_POST['nom'];
+    $_SESSION['user']['nom']=  $_POST['nom'];
 
+
+    // ajout d'un element dans un tableau exemple 
     // $tab=[
 
     //     "id"=>123

@@ -4,7 +4,9 @@
 $nom = isset($_GET['nom']) ? htmlspecialchars($_GET['nom']) : 'Nom inconnu';
 $prenom = isset($_GET['prenom']) ? htmlspecialchars($_GET['prenom']) : 'Nom inconnu';
 
+echo "<pre>";
 var_dump($_GET);
+echo "</pre>";
 
 ?>
 

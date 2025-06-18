@@ -6,7 +6,11 @@
 </head>
 <body>
 
-<?php var_dump($_POST) ?>
+<?php 
+echo "<pre>";
+var_dump($_POST);
+echo "</pre>";
+ ?>
 
 
 <p>Dans un formulaire utilisant la methode POST pour envoyer des données, les information soumisent ne sont pas visible dasn l'URL</p>

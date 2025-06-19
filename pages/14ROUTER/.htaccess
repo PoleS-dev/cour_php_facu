@@ -1,0 +1,25 @@
+
+
+
+RewriteEngine On
+
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)$ index.php?page=$1 [QSA,L]
+
+
+
+# Explications :
+# RewriteEngine On : Active le module de réécriture d'URL
+# RewriteBase : Définit le chemin de base de l'application
+# RewriteCond :
+# !-f : Si ce n'est pas un fichier existant
+# !-d : Si ce n'est pas un dossier existant
+# RewriteRule : Redirige tout vers router.php
+# Sans ce fichier .htaccess, le routeur ne fonctionnerait pas car :
+# Les URLs propres comme /home donneraient une erreur 404
+# Le serveur chercherait un dossier ou fichier physique correspondant
+# Le routeur ne serait jamais appelé
+# C'est donc le .htaccess qui est le véritable "chef d'orchestre" qui fait que toutes les requêtes passent par votre routeur !
+# Note : Si vous ne trouvez pas ce fichier dans votre projet, il serait important de le créer pour que le routage fonctionne correctement.

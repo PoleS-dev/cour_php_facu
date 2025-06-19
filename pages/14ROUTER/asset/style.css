@@ -1,0 +1,23 @@
+
+
+/* header */
+
+
+main{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    
+}
+
+nav{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+}
